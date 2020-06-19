@@ -38,8 +38,7 @@ Tensorflow Liteのobject detectionサンプルアプリで使うようにした�
 * [labelImg-to-csv](https://github.com/serhankilicarslan/labelImg-to-csv)でCSV fileを作って
 * Google Cloud Storageに転送して、
 * Google Cloud AutoML Visionでimportしてtrain
-* modelをexportして、[tflite_metadata.json](https://github.com/deton/detect4clover/files/4804105/tflite_metadata.json.txt)に合わせてJava codeを調整。
-  https://github.com/deton/detect4clover/pull/2/files
+* modelをexportして、[tflite_metadata.json](https://github.com/deton/detect4clover/files/4804105/tflite_metadata.json.txt)に合わせて[Java codeを調整](https://github.com/deton/detect4clover/pull/2/files#diff-75334c1203929366530e452eaecc673a)。
 * DetectorActivity.javaのMINIMUM_CONFIDENCE_TF_OD_APIの値を調整。
   Google Cloud AutoML VisionのWeb UIのevaluateタブで、
   confidence値を変えながら、PrecisionとRecall値を確認。
