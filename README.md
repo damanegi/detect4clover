@@ -1,36 +1,52 @@
-# TensorFlow Examples
+# detect4clover
 
-<div align="center">
-  <img src="https://www.tensorflow.org/images/tf_logo_social.png" /><br /><br />
-</div>
+Four-leaf clover detector android app.
 
-<h2>Most important links!</h2>
+Tensorflow Lite object detection sample android app with four-leaf clover data.
 
-* [Community examples](./community)
-* [Course materials](./courses/udacity_deep_learning) for the [Deep Learning](https://www.udacity.com/course/deep-learning--ud730) class on Udacity
+四つ葉のクローバー検出アプリ(Androidアプリ)。
 
-If you are looking to learn TensorFlow, don't miss the
-[core TensorFlow documentation](http://github.com/tensorflow/docs)
-which is largely runnable code.
-Those notebooks can be opened in Colab from
-[tensorflow.org](https://tensorflow.org).
+[Google Cloud AutoML Vision Object Detection](https://cloud.google.com/vision/automl/object-detection/docs/)
+を使って、四つ葉のクローバーを学習させたモデルを、
+Tensorflow Liteのobject detectionサンプルアプリで使うようにしたもの。
 
-<h2>What is this repo?</h2>
+## どんなアプリか
+* 四つ葉を探すのにはほとんど使えない。
+  人の目で見つけた後に、そこにあることがわかってから使うと検出される。
+  どこにあるかわからない状態で、アプリを使って見つけのは難しい。
+  * 遠くからだとほとんど検出されないので、
+    クローバーが生えているあたりに近付けて、画面を見ながら、
+    移動させてスキャンしていくのはかなり面倒。
+* 適合率が高くないので、四つ葉以外でも四つ葉として、しばしば検出する。
+  現状、適合率はあまり高くせず、再現率を少し高めにしているため。
+  でないと、何も検出されないまま、動いているかわからない状態が続くので。
 
-This is the TensorFlow example repo.  It has several classes of material:
+## アプリの作り方
+* 四つ葉のクローバーの写真を用意。自前で撮ったものを使用。
+* [200KBになるようにresizer.pyでresize](https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10#3a-gather-pictures)して、
+* labelImgでannotation付け。
+* [labelImg-to-csv](https://github.com/serhankilicarslan/labelImg-to-csv)でCSV fileを作って
+* Google Cloud Storageに転送して、
+* Google Cloud AutoML Visionでimportしてtrain
+* modelをexportして、tflite_metadata.jsonに合わせてJava codeを調整。
+* DetectorActivity.javaのMINIMUM_CONFIDENCE_TF_OD_APIの値を調整。
+  Google Cloud AutoML VisionのWeb UIのevaluateタブで、
+  confidence値を変えながら、PrecisionとRecall値を確認。
 
-* Showcase examples and documentation for our fantastic [TensorFlow Community](https://tensorflow.org/community)
-* Provide examples mentioned on TensorFlow.org
-* Publish material supporting official TensorFlow courses
-* Publish supporting material for the [TensorFlow Blog](https://blog.tensorflow.org) and [TensorFlow YouTube Channel](https://youtube.com/tensorflow)
+## 既知の問題点
+* アプリをしばらく動かし続けていると、何も検出しなくなる場合あり。
+  一度終了して起動し直すと検出するようになる。
 
-We welcome community contributions, see [CONTRIBUTING.md](CONTRIBUTING.md) and, for style help,
-[Writing TensorFlow documentation](https://www.tensorflow.org/community/documentation)
-guide.
+## 改良案
+* アプリ実行中に、confidence値を手で設定できる機能。
+  適合率を高めにして、四つ葉の確率が高いもののみ検出するようにしたい等に、
+  設定ができるように。
+  * Cloud AutoML VisionのWeb UIでの設定と同様に、confidence値に対する
+    適合率と再現率を確認できるグラフ表示付きで。
+* 見つけた四つ葉を写真に撮って、四つ葉の位置を指定して、
+  学習データとして使えるようにサーバに上げる機能。
 
-To file an issue, use the tracker in the
-[tensorflow/tensorflow](https://github.com/tensorflow/tensorflow/issues/new?template=20-documentation-issue.md) repo.
-
-## License
-
-[Apache License 2.0](LICENSE)
+## 拡張案
+* 検出したら音を出すようにする?
+* ドローンやロボットを使って移動させながらスキャンする?
+  適合率高めにした上で。
