@@ -27,7 +27,7 @@ Tensorflow Liteのobject detectionサンプルアプリで使うようにした�
   * 例:
     * 右下の青枠は、三つ葉を四つ葉と誤検出している。
     * 左下にある四つ葉を検出できていない。
-  ![Screenshot](https://user-images.githubusercontent.com/761487/85104065-cde2cd00-b242-11ea-920e-ffbece03e202.png)
+    * ![Screenshot](https://user-images.githubusercontent.com/761487/85104065-cde2cd00-b242-11ea-920e-ffbece03e202.png)
 
 ## アプリの作り方
 * 四つ葉のクローバーの写真を用意。自前で撮ったものを使用。
