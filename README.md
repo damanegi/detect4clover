@@ -29,7 +29,10 @@ Tensorflow Liteのobject detectionサンプルアプリで使うようにした�
     * 左下にある四つ葉を検出できていない。
     * ![Screenshot](https://user-images.githubusercontent.com/761487/85104065-cde2cd00-b242-11ea-920e-ffbece03e202.png)
 
-## アプリの作り方
+## 作った手順
+以下の手順で作ったものをこのrepositoryに入れているので、
+動作を試すだけであれば、Android StudioでビルドするだけでOK。
+
 * 四つ葉のクローバーの写真を用意。自前で撮ったものを使用。
 * [200KBになるようにresizer.pyでresize](https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10#3a-gather-pictures)して、
 * labelImgでannotation付け。
