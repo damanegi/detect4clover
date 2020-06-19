@@ -10,6 +10,10 @@ Tensorflow Lite object detection sample android app with four-leaf clover data.
 を使って、四つ葉のクローバーを学習させたモデルを、
 Tensorflow Liteのobject detectionサンプルアプリで使うようにしたもの。
 
+![Screenshot](https://user-images.githubusercontent.com/761487/85104054-c4f1fb80-b242-11ea-8cf9-9802ed36093c.png)
+
+![AutoML Vision Web UI](https://user-images.githubusercontent.com/761487/85104078-d6d39e80-b242-11ea-8d16-da90b0071256.png)
+
 ## どんなアプリか
 * 四つ葉を探すのにはほとんど使えない。
   人の目で見つけた後に、そこにあることがわかってから使うと検出される。
@@ -18,8 +22,12 @@ Tensorflow Liteのobject detectionサンプルアプリで使うようにした�
     クローバーが生えているあたりに近付けて、画面を見ながら、
     移動させてスキャンしていくのはかなり面倒。
 * 適合率が高くないので、四つ葉以外でも四つ葉として、しばしば検出する。
-  現状、適合率はあまり高くせず、再現率を少し高めにしているため。
-  でないと、何も検出されないまま、動いているかわからない状態が続くので。
+  * 現状、適合率はあまり高くせず、再現率を少し高めにしているため。
+    でないと、何も検出されないまま、動いているかわからない状態が続くので。
+  * 例:
+    * 右下の青枠は、三つ葉を四つ葉と誤検出している。
+    * 左下にある四つ葉を検出できていない。
+  ![Screenshot](https://user-images.githubusercontent.com/761487/85104065-cde2cd00-b242-11ea-920e-ffbece03e202.png)
 
 ## アプリの作り方
 * 四つ葉のクローバーの写真を用意。自前で撮ったものを使用。
