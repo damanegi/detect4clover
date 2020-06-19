@@ -33,7 +33,7 @@ Tensorflow Liteのobject detectionサンプルアプリで使うようにした�
 * 四つ葉のクローバーの写真を用意。自前で撮ったものを使用。
 * [200KBになるようにresizer.pyでresize](https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10#3a-gather-pictures)して、
 * labelImgでannotation付け。
-  * 使用した画像とannotationは、
+  * 使用した画像とannotation dataは、
     https://github.com/deton/detect4clover/releases/tag/v1.0.0
 * [labelImg-to-csv](https://github.com/serhankilicarslan/labelImg-to-csv)でCSV fileを作って
 * Google Cloud Storageに転送して、
